@@ -1,0 +1,7 @@
+Guidelines for generating Python code:
+    1. Explain the code you are importing and why you are importing it with comments next to the import statement.
+    2. Use verbose type hints.
+    3. Be consistent unless it's better to be inconsistent.
+    4. In addition to addressing my direct questions, please provide your best ideas and suggestions related to what I'm working on.
+        -> Add ideas in the code with an "IDEA" marker whenever you have a good idea!
+    5. Allow lines to be up to 100 characters wide. Don't break lines unless it's necessary.

@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "backend"
+version = "0.1.0"
+description = ""
+authors = ["Blake Larson <wokebloke@icloud.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12.4"
+foundation = { path = "../../../Useful Python Things/My Packages/Foundation", develop = true }
+fast-server = { path = "../../../Useful Python Things/My Packages/Fast Server", develop = true }
+dev-pytopia = { path = "../../../Useful Python Things/My Packages/Dev Pytopia", develop = true }
+uvicorn = "*"
+python-dotenv = "*"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "*"
+pytest = "*"
+pytest-asyncio = "*"
+ruff = "*"
+
+[tool.pytest.ini_options]
+addopts = "-v -s"
+log_cli = false
+log_cli_level = "DEBUG"
+pythonpath = ["src"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+markers = [
+    "quicktest: mark a test as a quick test",
+    "asyncio: mark test as asyncio"
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,56 @@
+[tool.poetry]
+name = "foundation"
+version = "0.1.0"
+description = ""
+authors = ["Blake Larson <wokebloke@icloud.com>"]
+readme = "README.md"
+packages = [
+    { include = "foundation", from = "source_code" }
+]
+
+[tool.poetry.dependencies]
+python = ">=3.12"
+colorama = "^0.4.6"
+motor = ">=3.6.1"
+pydantic = "^2.6.1"
+fastapi = "^0.110.0"
+orjson = "^3.9.10"
+python-multipart = "^0.0.7"
+pymongo = ">=4.9.2"
+click = "^8.1.7"
+aiofiles = "^24.1.0"
+openai = "^1.58.1"
+python-dotenv = "^1.0.1"
+watchfiles = "^1.0.3"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+pytest-asyncio = "^0.23.5"
+
+[tool.pytest.ini_options]
+addopts = "-v -s"
+pythonpath = ["source_code"]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+markers = [
+    "quicktest: mark a test as a quick test",
+]
+
+[tool.ruff]
+line-length = 115
+src = ["source_code"]
+
+[tool.ruff.lint]
+select = ["F", "E", "I"]
+ignore = ["E501"]
+per-file-ignores = { "__init__.py" = ["F401"] }
+
+[tool.ruff.lint.isort]
+force-sort-within-sections = true
+combine-as-imports = true
+split-on-trailing-comma = true
+relative-imports-order = "closest-to-furthest"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
